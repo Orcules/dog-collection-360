@@ -171,7 +171,11 @@ h2{font-family:var(--serif);font-weight:700;font-size:23px;margin:0;letter-spaci
 .cell b{position:absolute;top:5px;inset-inline-start:6px;font-family:var(--mono);
         font-size:10px;font-weight:500;color:#5B6472;background:rgba(255,255,255,.85);
         padding:1px 4px;border-radius:2px;font-variant-numeric:tabular-nums}
-.tail{height:72px}
+footer{margin:60px 0 44px;padding-top:16px;border-top:1px solid var(--rule)}
+footer a{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+         color:var(--ink-3);text-decoration:none;border-bottom:1px solid transparent}
+footer a:hover{color:var(--ink);border-bottom-color:currentColor}
+footer a::after{content:" ←"}
 
 @media (max-width:900px){
   .masthead{grid-template-columns:1fr}
@@ -255,7 +259,9 @@ h2{font-family:var(--serif);font-weight:700;font-size:23px;margin:0;letter-spaci
     <div class="grid" id="grid"></div>
   </section>
 
-  <div class="tail"></div>
+  <footer>
+    <a href="assets/">חומרי הקולקציה להורדה</a>
+  </footer>
 </div>
 
 <script>

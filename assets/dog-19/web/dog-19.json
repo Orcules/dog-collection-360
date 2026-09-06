@@ -1,0 +1,29 @@
+{
+  "item": 19,
+  "name": "dog-19",
+  "source_video": {
+    "spin": "dog-19-spin.mp4",
+    "tilt": "dog-19-tilt.mp4"
+  },
+  "backdrop": "#fdfefe",
+  "sheets": {
+    "spin": {
+      "file": "dog-19-spin.webp",
+      "frames": 72,
+      "columns": 6,
+      "rows": 12,
+      "tile_width": 640,
+      "tile_height": 652,
+      "label": "סיבוב 360°"
+    },
+    "tilt": {
+      "file": "dog-19-tilt.webp",
+      "frames": 72,
+      "columns": 6,
+      "rows": 12,
+      "tile_width": 640,
+      "tile_height": 652,
+      "label": "גובה מצלמה"
+    }
+  }
+}

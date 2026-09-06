@@ -1,0 +1,29 @@
+{
+  "item": 3,
+  "name": "dog-03",
+  "source_video": {
+    "spin": "dog-03-spin.mp4",
+    "tilt": "dog-03-tilt.mp4"
+  },
+  "backdrop": "#ffffff",
+  "sheets": {
+    "spin": {
+      "file": "dog-03-spin.webp",
+      "frames": 72,
+      "columns": 6,
+      "rows": 12,
+      "tile_width": 640,
+      "tile_height": 814,
+      "label": "סיבוב 360°"
+    },
+    "tilt": {
+      "file": "dog-03-tilt.webp",
+      "frames": 72,
+      "columns": 6,
+      "rows": 12,
+      "tile_width": 640,
+      "tile_height": 814,
+      "label": "גובה מצלמה"
+    }
+  }
+}
