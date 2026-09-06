@@ -61,14 +61,17 @@ h1{font-family:var(--serif);font-weight:900;font-size:clamp(32px,4.6vw,50px);
 
 /* ---------- the rig ---------- */
 .rig{display:grid;gap:0 30px;align-items:start;
-     grid-template-columns:minmax(0,560px) 56px minmax(210px,1fr);
+     grid-template-columns:auto 56px minmax(210px,1fr);
      grid-template-rows:auto 44px}
 .stagewrap{grid-column:1;grid-row:1}
 #stage{position:relative;background:var(--shot,var(--stage));border-radius:3px;
-       overflow:hidden;aspect-ratio:1/1;max-height:min(56vh,540px);width:100%;
+       overflow:hidden;width:fit-content;
        cursor:crosshair;touch-action:none;box-shadow:var(--shadow)}
-/* the clips come in many aspect ratios, so the frame is fitted, never stretched */
-#stage canvas{width:100%;height:100%;display:block;object-fit:contain}
+/* every clip has its own shape, so the frame takes the shape of the clip inside it:
+   nothing is letterboxed, nothing is stretched, and the scales follow that width */
+#stage canvas{display:block;width:auto;height:auto;
+              max-height:min(56vh,540px);
+              max-width:min(560px,calc(100vw - 150px))}
 #stage:focus-visible{outline:2px solid var(--yaw);outline-offset:3px}
 .cross{position:absolute;background:rgba(16,20,24,.10);pointer-events:none;opacity:0;
        transition:opacity .2s ease}
@@ -173,7 +176,7 @@ h2{font-family:var(--serif);font-weight:700;font-size:23px;margin:0;letter-spaci
 @media (max-width:900px){
   .masthead{grid-template-columns:1fr}
   .guide{justify-content:flex-start}
-  .rig{grid-template-columns:minmax(0,1fr) 50px;gap:0 22px}
+  .rig{grid-template-columns:auto 50px;gap:0 22px}
   .panel{grid-column:1/span 2;grid-row:3;padding-top:26px}
 }
 @media (prefers-reduced-motion:reduce){
@@ -303,6 +306,14 @@ h2{font-family:var(--serif);font-weight:700;font-size:23px;margin:0;letter-spaci
   }
   var curH = buildScale($('scaleH'), [0, 90, 180, 270, 360], 15, 360, false);
   var curV = buildScale($('scaleV'), [0, 30, 60, 90], 7.5, 90, true);
+
+  // the frame changes shape with every clip, so the horizontal scale is re-measured
+  // against it rather than against the column it sits in
+  if (window.ResizeObserver) {
+    new ResizeObserver(function () {
+      $('scaleH').style.width = stage.getBoundingClientRect().width + 'px';
+    }).observe(stage);
+  }
 
   // ---------- contact sheet ----------
   var grid = $('grid');
