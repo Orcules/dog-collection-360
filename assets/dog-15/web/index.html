@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>קבצים לאתר — כלב 15</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700;900&family=Heebo:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{--paper:#EEF0F3;--card:#FFF;--ink:#101418;--ink-2:#5B6472;--ink-3:#8B93A0;
+      --rule:#D6DAE1;--yaw:#2E4A6B;
+      --serif:"Frank Ruhl Libre",serif;--sans:"Heebo",system-ui,sans-serif;
+      --mono:"IBM Plex Mono",Consolas,monospace}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0F1215;--card:#171B20;--ink:#EDEFF2;--ink-2:#98A1AE;--ink-3:#6B7480;
+  --rule:#252A31;--yaw:#7FA8D8}}
+:root[data-theme="dark"]{--paper:#0F1215;--card:#171B20;--ink:#EDEFF2;--ink-2:#98A1AE;
+  --ink-3:#6B7480;--rule:#252A31;--yaw:#7FA8D8}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+     font-weight:300;line-height:1.6}
+.shell{max-width:760px;margin:0 auto;padding:40px 30px 70px}
+.up{font-family:var(--mono);font-size:11px;letter-spacing:.11em;text-transform:uppercase;
+    color:var(--ink-3);text-decoration:none}
+.up:hover{color:var(--ink)}
+h1{font-family:var(--serif);font-weight:900;font-size:34px;margin:12px 0 0;
+   letter-spacing:-.012em}
+.lede{margin:8px 0 26px;color:var(--ink-2);font-size:15px;max-width:62ch}
+.files{display:flex;flex-direction:column;gap:10px;margin:0 0 30px}
+.f{background:var(--card);border-radius:3px;box-shadow:0 0 0 1px var(--rule);
+   padding:13px 16px;display:grid;gap:2px}
+.f a{font-family:var(--mono);font-size:14px;color:var(--yaw);text-decoration:none;
+     border-bottom:1px solid transparent;justify-self:start}
+.f a:hover{border-bottom-color:currentColor}
+.f p{margin:0;font-size:13px;color:var(--ink-2)}
+.f span{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);
+        letter-spacing:.05em;font-variant-numeric:tabular-nums}
+h2{font-family:var(--serif);font-size:19px;font-weight:700;margin:0 0 8px}
+pre{margin:0;background:var(--card);border-radius:3px;box-shadow:0 0 0 1px var(--rule);
+    padding:14px 16px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;
+    line-height:1.7;color:var(--ink-2);direction:ltr;text-align:left}
+</style>
+</head>
+<body>
+<div class="shell">
+  <a class="up" href="../../">חזרה לכל החומרים</a>
+  <h1>קבצים לאתר · כלב 15</h1>
+  <p class="lede">שתי האנימציות כתמונה אחת כל אחת. כל הפריימים מסודרים ברשת, כך
+     שהדפדפן טוען קובץ אחד במקום עשרות והתנועה יוצאת חלקה.</p>
+  <div class="files">
+    <div class="f"><a href="dog-15-spin.webp">dog-15-spin.webp</a><p>סיבוב 360° — 72 פריימים ברשת של 6&times;12</p><span>640&times;804 לכל משבצת · 1.4 MB</span></div>
+    <div class="f"><a href="dog-15-tilt.webp">dog-15-tilt.webp</a><p>גובה מצלמה — 72 פריימים ברשת של 6&times;12</p><span>640&times;804 לכל משבצת · 1.4 MB</span></div>
+    <div class="f"><a href="dog-15.json">dog-15.json</a><p>המידות של שתי הרשתות וצבע הרקע של הצילום</p><span>0.6 KB</span></div>
+  </div>
+  <h2>איך חותכים פריים</h2>
+  <pre>x = (k % columns) * tile_width
+y = floor(k / columns) * tile_height
+
+drawImage(sheet, x, y, tile_width, tile_height, ...)</pre>
+</div>
+</body>
+</html>
